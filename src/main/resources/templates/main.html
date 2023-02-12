@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+    <div th:fragment="main">
+        <div class="wrapper row0 bgded" style="background-image:url('/images/backgrounds/servers.png');">
+            <div id="pageintro" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <article>
+                    <div class="overlay inspace-30 btmspace-30">
+                        <p class="font-xs nospace"></p>
+                        <br />
+                        <div th:if="${serverActive}">
+                            <h2 class="heading center">Статус VPN сервера: <server class="enable fa fa-check fa-4x"> Работает</server></h2>
+                        </div>
+                        <div th:if="${not serverActive}">
+                            <h2 class="heading center">Статус VPN сервера: <server class="disable fa fa-check fa-4x"> Отключён</server></h2>
+                        </div>
+                    </div>
+                </article>
+                <!-- ################################################################################################ -->
+            </div>
+        </div>
+
+        <div class="wrapper coloured">
+            <div class="hoc container clear">
+                <h2 class="heading center font-x3">Инструкции по подключению</h2>
+                <div class="margin-top"></div>
+                <!-- ################################################################################################ -->
+                <ul class="nospace group center">
+                    <li class="one_quarter first">
+                        <article><a href="/manual/windows/"><i class="btmspace-15 fa fa-4x fa-windows"></i></a>
+                            <h6 class="font-x1">Windows</h6>
+                            <p class="nospace">Инструкция по подключению на Windows.</p>
+                        </article>
+                    </li>
+                    <li class="one_quarter">
+                        <article><a href="/manual/android/"><i class="btmspace-15 fa fa-4x fa-android"></i></a>
+                            <h6 class="font-x1">Android</h6>
+                            <p class="nospace">Инструкция по подключению на Android.</p>
+                        </article>
+                    </li>
+                    <li class="one_quarter">
+                        <article><a href="manual/ios/"><i class="btmspace-15 fa fa-4x fa-apple"></i></a>
+                            <h6 class="font-x1">iOS</h6>
+                            <p class="nospace">Инструкция по подключению на iOS.</p>
+                        </article>
+                    </li>
+                    <li class="one_quarter">
+                        <article><a href="manual/macos/"><i class="btmspace-15 fa fa-4x fa-laptop"></i></a>
+                            <h6 class="font-x1">macOS</h6>
+                            <p class="nospace">Инструкция по подключению на macOS.</p>
+                        </article>
+                    </li>
+                </ul>
+                <!-- ################################################################################################ -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

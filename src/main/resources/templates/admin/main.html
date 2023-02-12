@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+    <div th:fragment="main">
+
+        <div class="wrapper row1">
+            <main class="hoc container clear">
+                <!-- main body -->
+                <!-- ################################################################################################ -->
+
+                <h2>Список пользователей</h2>
+                <table>
+                    <tr>
+                        <th>Логин</th>
+                        <th>Пароль</th>
+                        <th>Тип подключения</th>
+                        <th>Действие</th>
+                    </tr>
+
+                    <tr th:each="user : ${userList}">
+                        <td th:text="${user.login}"></td>
+                        <td th:text="${user.password}"></td>
+                        <td th:text="${user.typeVPN}"></td>
+                        <td>
+                            <ul class="nospace inline pushright">
+                                <li><a class="btn inverse" th:href="@{user/del/(login=${user.login})}">Удалить</a></li>
+                                <li><a class="btn inverse" target="_blank" th:href="@{user/info/(login=${user.login})}">Инфо</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <div id="comments">
+                    <h3 style="margin-top: 3em;">Добавить пользователя VPN</h3>
+                    <form action="#" th:action="@{user/add/}" th:object="${user}" method="post">
+                        <div class="one_third first">
+                            <label for="login">Логин <span>*</span></label>
+                            <input id="login" name="login" type="text" th:field="*{login}" required
+                                   oninvalid="this.setCustomValidity('Поле не может быть пустым!')"
+                                   oninput="this.setCustomValidity('')"
+                                   alt="Обязательное поле!">
+                            <p th:if="${#fields.hasErrors('login')}" th:errorclass="error" th:errors="*{login}"></p>
+                        </div>
+
+                        <div class="one_third">
+                            <label for="password">Пароль <span>*</span></label>
+                            <input type="text" name="password" id="password" th:field="*{password}" required
+                                   oninvalid="this.setCustomValidity('Поле не может быть пустым!')"
+                                   oninput="this.setCustomValidity('')"
+                                   alt="Обязательное поле!">
+                            <p th:if="${#fields.hasErrors('password')}" th:errorclass="error" th:errors="*{password}"></p>
+                        </div>
+
+                        <div class="one_third">
+                            <label for="typeVPN">Тип VPN <span>*</span></label>
+                            <input id="typeVPN" type="text" th:value="*{typeVPN}" th:field="*{typeVPN}" required disabled>
+                        </div>
+
+                        <div class="right">
+                            <input type="submit" value="Добавить"/>
+                        </div>
+                    </form>
+                </div>
+
+
+                <!-- ################################################################################################ -->
+                <!-- / main body -->
+                <div class="clear"></div>
+            </main>
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <div class="wrapper row0 bgded" style="background-image:url('/images/backgrounds/servers.png');">
+            <div id="pageintro" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <article>
+                    <div class="overlay inspace-30 btmspace-30">
+                        <p class="font-xs nospace">systemctl status strongswan-starter</p>
+                        <h2 class="heading">Статус strongswan</h2>
+                        <p th:utext="${serverStatusError}" ></p>
+                        <p th:utext="${serverStatusAnswer}" ></p>
+                    </div>
+                    <footer>
+                        <ul class="nospace inline pushright">
+                            <li><a class="btn inverse" href="ipsec/start/" th:if="${not serverStatus}">Запустить</a></li>
+                            <li><a class="btn inverse" href="ipsec/stop/" th:if="${serverStatus}">Остановить</a></li>
+                            <li><a class="btn" href="ipsec/start/" th:if="${serverStatus}">Перезапустить</a></li>
+                        </ul>
+                    </footer>
+                </article>
+                <!-- ################################################################################################ -->
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

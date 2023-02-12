@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Template Name: Gestpio
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html>
+<head>
+<title>WebVPN</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link th:href="@{/layout/styles/layout.css}" rel="stylesheet" type="text/css" media="all">
+  <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="topbar" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="fl_left">
+      <ul class="nospace inline pushright">
+        <li><i class="small fa fa-sign-in"></i> <a href="/admin/">Администрирование</a></li>
+      </ul>
+    </div>
+
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1><a href="/">WebVPN</a></h1>
+      <i class="fa fa-server"></i>
+      <p class="center">IPSec/IKEv2 MSCHAPv2 <br/> EAP strongswan</p>
+    </div>
+    <!-- ################################################################################################ -->
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <li class="active"><a href="/">Главная</a></li>
+        <li class="active"><a href="#">Как подключить</a>
+          <ul>
+            <li><a href="/manual/windows/">Windows</a></li>
+            <li><a href="/manual/android/">Android</a></li>
+            <li><a href="/manual/ios/">iOS</a></li>
+            <li><a href="/manual/macos/">macOS</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- ################################################################################################ -->
+  </header>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+
+<div th:replace="~{${include.path} :: ${include.name}}"></div>
+
+<div th:replace="~{footer :: footer}"></div>
+
+</body>
+</html>
